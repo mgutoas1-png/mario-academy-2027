@@ -532,9 +532,582 @@ if __name__ == '__main__':
   },
 ];
 
+  // ==================== ADMIN IMÓVEIS — SEMANA 1 ====================
+  {
+    id: 'ai-semana-01',
+    numero: 1,
+    projeto: 'admin-imoveis',
+    semana: 1,
+    titulo: '🚀 Primeiro Servidor Spring Boot',
+    descricao: 'Crie seu primeiro servidor em Java - Admin de Imóveis começando!',
+    duracao: '30min',
+
+    conceito: {
+      definicao: 'Spring Boot é como Flask, mas em Java! Cria servidores web super rápidos.',
+      analogia: 'Se Flask é um garçom simples, Spring Boot é um gerente experiente que já sabe tudo pronto!',
+      diagrama_ascii: `
+SEU COMPUTADOR (Java + Spring Boot)
+         ↓
+    http://localhost:8080
+         ↓
+  NAVEGADOR (Chrome)
+
+  🏢 Bem-vindo ao Admin Imóveis!
+      `,
+    },
+
+    passos: [
+      {
+        numero: 1,
+        titulo: 'Instalar JDK Java',
+        descricao: 'Java precisa estar instalado no computador',
+        checklist: [
+          'Baixar JDK em oracle.com/java (versão 17+)',
+          'Instalar completo',
+          'Reiniciar computador',
+          'Verificar: digitar "java -version" no Terminal',
+        ],
+      },
+      {
+        numero: 2,
+        titulo: 'Instalar Maven',
+        descricao: 'Ferramenta que gerencia projetos Java',
+        checklist: [
+          'Baixar Maven em maven.apache.org',
+          'Instalar',
+          'Verificar: digitar "mvn -version" no Terminal',
+        ],
+      },
+      {
+        numero: 3,
+        titulo: 'Criar projeto Spring Boot',
+        descricao: 'Usar Spring Boot para gerar estrutura básica',
+        checklist: [
+          'Ir para: start.spring.io',
+          'Selecionar: Maven, Java 17+, Spring Boot 3.x',
+          'Add Dependency: "Spring Web"',
+          'Clicar: "Generate"',
+          'Extrair arquivo ZIP',
+        ],
+      },
+      {
+        numero: 4,
+        titulo: 'Criar Controller',
+        descricao: 'Arquivo que responde as requisições',
+        codigos: [
+          {
+            linguagem: 'java',
+            arquivo: 'ImoveisController.java',
+            conteudo: `package com.mario.admin_imoveis.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ImoveisController {
+
+    @GetMapping("/")
+    public String home() {
+        return "🏢 Bem-vindo ao Admin Imóveis!";
+    }
+
+    @GetMapping("/api/status")
+    public String status() {
+        return "✅ Sistema rodando!";
+    }
+}
+`
+          }
+        ],
+        checklist: [
+          'Pasta: src/main/java/com/mario/admin_imoveis/controller/',
+          'Criar arquivo ImoveisController.java',
+          'Copiar código acima',
+          'Salvar',
+        ],
+      },
+      {
+        numero: 5,
+        titulo: 'Rodar o servidor',
+        descricao: 'Iniciar Spring Boot',
+        checklist: [
+          'Terminal na pasta do projeto',
+          'Digitar: mvn spring-boot:run',
+          'Esperar aparecer: "Tomcat started on port(s): 8080"',
+          'Ver: "🎉 Mario Academy - Spring Boot!"',
+        ],
+      },
+      {
+        numero: 6,
+        titulo: 'Testar no navegador',
+        descricao: 'Acessar o servidor',
+        checklist: [
+          'Abrir navegador',
+          'Digitar: http://localhost:8080',
+          'Ver: "🏢 Bem-vindo ao Admin Imóveis!"',
+        ],
+      },
+    ],
+
+    teste: {
+      confirmacoes_visuais: [
+        '✅ JDK instalado (java -version)',
+        '✅ Maven instalado (mvn -version)',
+        '✅ "Tomcat started on port(s): 8080"',
+        '✅ localhost:8080 mostrando "🏢 Bem-vindo ao Admin Imóveis!"',
+      ],
+      resultado_esperado: 'Servidor Spring Boot rodando e respondendo em localhost:8080',
+    },
+
+    checklist_final: [
+      'JDK 17+ instalado',
+      'Maven instalado',
+      'Projeto Spring Boot criado',
+      'ImoveisController.java criado',
+      'mvn spring-boot:run executado',
+      'localhost:8080 abrindo no navegador',
+      'Mensagem "🏢 Bem-vindo ao Admin Imóveis!" visível',
+    ],
+
+    problemas_comuns: [
+      {
+        problema: 'Erro: "java: command not found"',
+        solucao: 'Java não instalado. Baixar JDK em oracle.com/java, instalar, REINICIAR',
+      },
+      {
+        problema: 'Porta 8080 já está em uso',
+        solucao: 'Mudar porta em application.properties: server.port=8081',
+      },
+      {
+        problema: 'Maven não encontrado',
+        solucao: 'Maven não instalado ou não está no PATH. Reinstalar e adicionar ao PATH',
+      },
+    ],
+  },
+
+  // ==================== SERVIÇOS PRO — SEMANA 1 ====================
+  {
+    id: 'sp-semana-01',
+    numero: 1,
+    projeto: 'servicos-pro',
+    semana: 1,
+    titulo: '🚀 Primeiro App React',
+    descricao: 'Crie seu primeiro App React - Marketplace de Serviços começando!',
+    duracao: '30min',
+
+    conceito: {
+      definicao: 'React é uma biblioteca que cria interfaces bonitas e rápidas no navegador. É como desenhar na tela com JavaScript!',
+      analogia: 'Se Flask/Spring Boot são o "servidor", React é o "desenho bonito" que o usuário vê!',
+      diagrama_ascii: `
+REACT = DESENHO NA TELA
+
+┌─────────────────────┐
+│  Seu Código React   │
+│  (App.tsx)          │
+└──────────┬──────────┘
+           ↓
+┌─────────────────────┐
+│  Navegador mostra   │
+│  💈 ServiçosPro!    │
+│  (bonito + rápido)  │
+└─────────────────────┘
+      `,
+    },
+
+    passos: [
+      {
+        numero: 1,
+        titulo: 'Instalar Node.js',
+        descricao: 'Node.js é necessário para React',
+        checklist: [
+          'Baixar Node.js em nodejs.org (versão LTS)',
+          'Instalar',
+          'Verificar: "node --version" no Terminal',
+        ],
+      },
+      {
+        numero: 2,
+        titulo: 'Criar projeto React',
+        descricao: 'Usar Vite para criar estrutura React',
+        checklist: [
+          'Terminal em qualquer lugar',
+          'Digitar: npm create vite@latest servicos-pro -- --template react-ts',
+          'Esperar terminar',
+        ],
+      },
+      {
+        numero: 3,
+        titulo: 'Instalar dependências',
+        descricao: 'Baixar bibliotecas do React',
+        checklist: [
+          'cd servicos-pro',
+          'npm install',
+          'Esperar terminar (pode levar 1-2 min)',
+        ],
+      },
+      {
+        numero: 4,
+        titulo: 'Criar primeiro componente',
+        descricao: 'Componente React simples',
+        codigos: [
+          {
+            linguagem: 'typescript',
+            arquivo: 'src/App.tsx',
+            conteudo: `import './App.css'
+
+function App() {
+  return (
+    <div className="app">
+      <h1>💈 ServiçosPro</h1>
+      <p>Bem-vindo ao Marketplace de Serviços!</p>
+      <button onClick={() => alert('Parabéns! 🎉')}>
+        Clique aqui!
+      </button>
+    </div>
+  )
+}
+
+export default App
+`
+          }
+        ],
+        checklist: [
+          'Abrir src/App.tsx',
+          'Substituir conteúdo pelo código acima',
+          'Salvar arquivo',
+        ],
+      },
+      {
+        numero: 5,
+        titulo: 'Rodar o servidor',
+        descricao: 'Iniciar dev server',
+        checklist: [
+          'Terminal na pasta servicos-pro',
+          'Digitar: npm run dev',
+          'Ver: "➜ Local: http://localhost:5173"',
+        ],
+      },
+      {
+        numero: 6,
+        titulo: 'Testar no navegador',
+        descricao: 'Ver sua página React bonita',
+        checklist: [
+          'Abrir navegador: http://localhost:5173',
+          'Ver: "💈 ServiçosPro" bem bonito',
+          'Clicar no botão e ver alert',
+        ],
+      },
+    ],
+
+    teste: {
+      confirmacoes_visuais: [
+        '✅ Node.js instalado (node --version)',
+        '✅ Projeto React criado',
+        '✅ npm install completado',
+        '✅ "➜ Local: http://localhost:5173"',
+        '✅ Página mostrando "💈 ServiçosPro"',
+        '✅ Botão funciona',
+      ],
+      resultado_esperado: 'Página React bonita abrindo em localhost:5173 com botão interativo',
+    },
+
+    checklist_final: [
+      'Node.js instalado',
+      'Projeto React criado com Vite',
+      'npm install completado',
+      'App.tsx modificado',
+      'npm run dev executado',
+      'localhost:5173 abrindo',
+      'Página mostrando "💈 ServiçosPro"',
+      'Botão interativo funcionando',
+    ],
+
+    problemas_comuns: [
+      {
+        problema: 'Erro: "npm: command not found"',
+        solucao: 'Node.js não instalado. Baixar nodejs.org, instalar, REINICIAR',
+      },
+      {
+        problema: 'Porta 5173 já em uso',
+        solucao: 'Outra aplicação usando. Fechar ou rodar em porta diferente: npm run dev -- --port 5174',
+      },
+    ],
+  },
+
+  // ==================== ESCOLA X — SEMANA 1 ====================
+  {
+    id: 'ex-semana-01',
+    numero: 1,
+    projeto: 'escola-x',
+    semana: 1,
+    titulo: '🚀 App React com Gamificação',
+    descricao: 'Crie seu primeiro App com XP e levels - Plataforma de Cursos começando!',
+    duracao: '30min',
+
+    conceito: {
+      definicao: 'React + Gamificação = App bonito com pontos, levels, badges! Como um videogame!',
+      analogia: 'Se React é o desenho, Gamificação é a diversão - pontos, levels, conquistas!',
+      diagrama_ascii: `
+REACT + GAMIFICAÇÃO
+
+┌──────────────────┐
+│  Seu App React   │
+│  (App.tsx)       │
+└────────┬─────────┘
+         ↓
+┌──────────────────────────┐
+│  🎮 Gamificação!         │
+│  XP: 100                 │
+│  Level: 1                │
+│  Badge: 🥉 Bronze        │
+│                          │
+│  ⭐ Bem-vindo!          │
+└──────────────────────────┘
+      `,
+    },
+
+    passos: [
+      {
+        numero: 1,
+        titulo: 'Instalar Node.js',
+        descricao: 'Node.js é necessário',
+        checklist: [
+          'Baixar em nodejs.org (versão LTS)',
+          'Instalar',
+          'Verificar: "node --version"',
+        ],
+      },
+      {
+        numero: 2,
+        titulo: 'Criar projeto React + TypeScript',
+        descricao: 'Estrutura React com Vite',
+        checklist: [
+          'Digitar: npm create vite@latest escola-x -- --template react-ts',
+          'Esperar terminar',
+        ],
+      },
+      {
+        numero: 3,
+        titulo: 'Instalar dependências',
+        descricao: 'Baixar bibliotecas',
+        checklist: [
+          'cd escola-x',
+          'npm install',
+          'Esperar terminar',
+        ],
+      },
+      {
+        numero: 4,
+        titulo: 'Criar hook de Gamificação',
+        descricao: 'Hook para gerenciar XP, levels, badges',
+        codigos: [
+          {
+            linguagem: 'typescript',
+            arquivo: 'src/hooks/useGamification.ts',
+            conteudo: `import { useState } from 'react';
+
+export interface Gamificacao {
+  xp: number;
+  level: number;
+  badges: string[];
+}
+
+export const useGamification = () => {
+  const [game, setGame] = useState<Gamificacao>({
+    xp: 100,
+    level: 1,
+    badges: ['bronze']
+  });
+
+  const adicionarXP = (valor: number) => {
+    const novoXP = game.xp + valor;
+    const novoLevel = Math.floor(novoXP / 500) + 1;
+
+    setGame({
+      ...game,
+      xp: novoXP,
+      level: novoLevel
+    });
+  };
+
+  return { game, adicionarXP };
+};
+`
+          }
+        ],
+        checklist: [
+          'Criar pasta: src/hooks/',
+          'Criar arquivo: useGamification.ts',
+          'Copiar código',
+          'Salvar',
+        ],
+      },
+      {
+        numero: 5,
+        titulo: 'Usar no App.tsx',
+        descricao: 'Mostrar gamificação na tela',
+        codigos: [
+          {
+            linguagem: 'typescript',
+            arquivo: 'src/App.tsx',
+            conteudo: `import './App.css'
+import { useGamification } from './hooks/useGamification'
+
+function App() {
+  const { game, adicionarXP } = useGamification()
+
+  return (
+    <div className="app">
+      <h1>🎓 EscolaX</h1>
+
+      <div className="gamificacao">
+        <div>XP: {game.xp}</div>
+        <div>Level: {game.level}</div>
+        <div>Badges: {game.badges.join(', ')}</div>
+      </div>
+
+      <button onClick={() => adicionarXP(50)}>
+        Ganhar 50 XP! 🎯
+      </button>
+    </div>
+  )
+}
+
+export default App
+`
+          }
+        ],
+        checklist: [
+          'Abrir src/App.tsx',
+          'Substituir conteúdo',
+          'Salvar',
+        ],
+      },
+      {
+        numero: 6,
+        titulo: 'Adicionar estilos',
+        descricao: 'Deixar bonito',
+        codigos: [
+          {
+            linguagem: 'css',
+            arquivo: 'src/App.css',
+            conteudo: `.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #667eea;
+  margin-bottom: 2rem;
+}
+
+.gamificacao {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gamificacao div {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #764ba2;
+  transform: scale(1.05);
+}
+`
+          }
+        ],
+        checklist: [
+          'Abrir src/App.css',
+          'Copiar estilos',
+          'Salvar',
+        ],
+      },
+      {
+        numero: 7,
+        titulo: 'Rodar o servidor',
+        descricao: 'Ver funcionando',
+        checklist: [
+          'Terminal: npm run dev',
+          'Ver: "➜ Local: http://localhost:5173"',
+        ],
+      },
+      {
+        numero: 8,
+        titulo: 'Testar no navegador',
+        descricao: 'Clicar no botão e ver XP subir',
+        checklist: [
+          'Abrir: http://localhost:5173',
+          'Ver: "🎓 EscolaX" com gamificação',
+          'Clicar em "Ganhar 50 XP!"',
+          'Ver XP aumentando',
+          'Clicar 10x para subir de level',
+        ],
+      },
+    ],
+
+    teste: {
+      confirmacoes_visuais: [
+        '✅ App React abrindo',
+        '✅ "🎓 EscolaX" no topo',
+        '✅ Gamificação mostrando: XP, Level, Badges',
+        '✅ Botão "Ganhar 50 XP!" funciona',
+        '✅ XP aumentando ao clicar',
+        '✅ Level subindo (a cada 500 XP)',
+      ],
+      resultado_esperado: 'App React com gamificação funcional - clicar no botão aumenta XP e level',
+    },
+
+    checklist_final: [
+      'Node.js instalado',
+      'Projeto React criado',
+      'Hook useGamification.ts criado',
+      'App.tsx atualizado',
+      'App.css com estilos',
+      'npm run dev executado',
+      'localhost:5173 abrindo',
+      'XP e level funcionando',
+    ],
+
+    problemas_comuns: [
+      {
+        problema: 'Hook não funciona',
+        solucao: 'Verificar import: import { useGamification } from "./hooks/useGamification"',
+      },
+      {
+        problema: 'Estilos não aparecem',
+        solucao: 'App.css não foi salvo ou não está importado. Verificar: import "./App.css"',
+      },
+    ],
+  },
+
 // ==================== PRÓXIMAS AULAS ====================
-// Semana 3: Flask + BD
-// Semana 4: Formulário
-// Admin Imóveis Semanas 1-4
-// ServiçosPro Semanas 1-2
-// EscolaX Semanas 1-2
+// HC Semana 2: Flask + BD ✅
+// HC Semana 3: Flask + BD Integrado
+// HC Semana 4: Formulário
+// AI Semana 2: JPA + BD
+// AI Semana 3: REST API
+// AI Semana 4: Service Layer
+// SP Semana 2: React Router
+// EX Semana 2: Firebase
