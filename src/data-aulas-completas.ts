@@ -462,4 +462,97 @@ export default App`
       { problema: 'Página não atualiza', solucao: 'Salvar arquivo e F5 no navegador' },
     ],
   },
+
+  // ==================== HOUSE CLEANERS — SEMANA 2 ====================
+  {
+    id: 'hc-semana-02',
+    numero: 2,
+    projeto: 'house-cleaners',
+    semana: 2,
+    titulo: '💾 Banco de Dados SQLite',
+    descricao: 'Cria tabelas, insere dados, consulta com relações. Seu primeiro banco funcional!',
+    duracao: '30min',
+    conceito: {
+      definicao: 'Banco de dados é um "fichário inteligente" que guarda seus dados de forma organizada!',
+      analogia: 'Imagina uma PLANILHA SUPER POTENTE que não perde dados e conecta informações!',
+      diagrama_ascii: 'BANCO SQLite → Tabela: Clientes → Tabela: Agendamentos → Tudo conectado!'
+    },
+    passos: [
+      { numero: 1, titulo: 'Criar arquivo database.py', descricao: 'Arquivo que cria o banco', checklist: ['Arquivo criado', 'Salvo'] },
+      { numero: 2, titulo: 'Criar tabelas SQL', descricao: 'CREATE TABLE usuarios, agendamentos', checklist: ['Tabelas OK'] },
+      { numero: 3, titulo: 'Inserir dados', descricao: 'INSERT clientes exemplo', checklist: ['3 clientes adicionados'] },
+      { numero: 4, titulo: 'Rodar python database.py', descricao: 'Executar e ver resultado', checklist: ['Banco criado'] },
+    ],
+    teste: {
+      confirmacoes_visuais: ['✅ clientes.db criado', '✅ 3 clientes adicionados', '✅ Agendamentos listados'],
+      resultado_esperado: 'Arquivo clientes.db com dados e relacionamentos funcionando'
+    },
+    checklist_final: ['database.py criado', 'Tabelas criadas', 'Dados inseridos', 'python database.py executado'],
+    problemas_comuns: [
+      { problema: 'Erro de SQL', solucao: 'Verificar sintaxe SQL em sqlitebrowser.org' },
+      { problema: 'Arquivo não criado', solucao: 'Verificar pasta e permissões' }
+    ],
+  },
+
+  // ==================== HOUSE CLEANERS — SEMANA 3 ====================
+  {
+    id: 'hc-semana-03',
+    numero: 3,
+    projeto: 'house-cleaners',
+    semana: 3,
+    titulo: '🌐 Flask + Banco de Dados',
+    descricao: 'Conecte Flask com SQLite! Servidor web mostrando dados reais!',
+    duracao: '30min',
+    conceito: {
+      definicao: 'Flask lê dados do banco e mostra em HTML dinamicamente!',
+      analogia: 'Flask = Chef que pega ingredientes (dados) e monta um prato (página HTML)!',
+      diagrama_ascii: 'Navegador → Flask app.py → lê database.db → Retorna HTML com dados'
+    },
+    passos: [
+      { numero: 1, titulo: 'pip install flask', descricao: 'Instalar Flask', checklist: ['Flask instalado'] },
+      { numero: 2, titulo: 'Criar app.py conectado ao banco', descricao: 'Import sqlite3, conectar BD', checklist: ['Conexão OK'] },
+      { numero: 3, titulo: 'Criar rota que busca dados', descricao: '@app.route("/") que faz SELECT', checklist: ['Rota funciona'] },
+      { numero: 4, titulo: 'Criar template HTML', descricao: 'templates/index.html com dados', checklist: ['Template pronto'] },
+    ],
+    teste: {
+      confirmacoes_visuais: ['✅ Flask rodando', '✅ Página mostra clientes', '✅ Dados estão VIVOS do banco'],
+      resultado_esperado: 'localhost:5000 mostra lista de clientes vindo do banco SQLite em tempo real'
+    },
+    checklist_final: ['Flask instalado', 'app.py com BD', 'Rota criada', 'Template HTML', 'Dados aparecem'],
+    problemas_comuns: [
+      { problema: 'Dados não aparecem', solucao: 'Verificar se database.py foi executado' },
+      { problema: 'Template não renderiza', solucao: 'Checkar folder templates/ existe' }
+    ],
+  },
+
+  // ==================== HOUSE CLEANERS — SEMANA 4 ====================
+  {
+    id: 'hc-semana-04',
+    numero: 4,
+    projeto: 'house-cleaners',
+    semana: 4,
+    titulo: '📝 Formulário + INSERT',
+    descricao: 'Adicionar clientes via formulário! CRUD completo!',
+    duracao: '30min',
+    conceito: {
+      definicao: 'Formulário HTML envia dados para Flask, Flask faz INSERT no banco. Ciclo completo!',
+      analogia: 'Formulário = Caixa de sugestão. Usuário escreve, você guarda no banco!',
+      diagrama_ascii: 'Form HTML → POST → Flask → INSERT → SQLite → ✅ Novo cliente!'
+    },
+    passos: [
+      { numero: 1, titulo: 'Criar template com formulário', descricao: 'HTML form com input fields', checklist: ['Form visível'] },
+      { numero: 2, titulo: 'Criar rota POST', descricao: '@app.route("/adicionar", methods=["POST"])', checklist: ['Rota POST OK'] },
+      { numero: 3, titulo: 'Validar dados', descricao: 'Verificar campos não vazios', checklist: ['Validação OK'] },
+      { numero: 4, titulo: 'Fazer INSERT', descricao: 'INSERT INTO usuarios com request.form', checklist: ['Dado salvo'] },
+    ],
+    teste: {
+      confirmacoes_visuais: ['✅ Formulário carrega', '✅ Submit funciona', '✅ Lista atualiza com novo cliente'],
+      resultado_esperado: 'Preencher nome/email/telefone, clicar "Adicionar", cliente aparece na lista'
+    },
+    checklist_final: ['Formulário HTML criado', 'Rota POST funciona', 'Validação OK', 'INSERT funciona', 'Lista atualiza'],
+    problemas_comuns: [
+      { problema: 'Formulário não envia', solucao: 'Verificar name="" dos inputs' },
+      { problema: 'Erro 404 ao enviar', solucao: 'Verificar rota /adicionar e method="POST"' }
+    ],
+  },
 ];
