@@ -52,6 +52,224 @@ export interface Aula {
 }
 
 export const TODAS_AS_AULAS: Aula[] = [
+  // ==================== HOUSE CLEANERS — SEMANA 1 ====================
+  {
+    id: 'hc-semana-01',
+    numero: 1,
+    projeto: 'house-cleaners',
+    semana: 1,
+    titulo: '🚀 Primeiro Servidor Web com Flask',
+    descricao: 'Crie seu primeiro "Hello World" - um servidor que funciona no seu computador!',
+    duracao: '30min',
+
+    conceito: {
+      definicao: `Flask é um NEGOCIANTE DE MENSAGENS.
+
+Você quer enviar uma mensagem do seu computador para o navegador?
+Flask faz isso! É como um garçom que pega o que você quer e leva para o cliente.`,
+      analogia: `
+Imagina uma LOJA DE LIMPEZA (House Cleaners):
+
+SEU COMPUTADOR (a cozinha da loja)
+         ↓
+    [FLASK - garçom]
+         ↓
+  SEU NAVEGADOR (o cliente)
+
+Quando você digita: http://localhost:5000
+Flask pega a mensagem e leva para você!
+      `,
+      diagrama_ascii: `
+┌──────────────────────┐
+│  SEU COMPUTADOR      │
+│  (app.py rodando)    │
+│       Flask          │
+└──────────┬───────────┘
+           │ localhost:5000
+           ↓
+┌──────────────────────┐
+│  SEU NAVEGADOR       │
+│  Chrome/Firefox      │
+│                      │
+│  🧹 House Cleaners!  │
+└──────────────────────┘
+
+RESULTADO: Você vê a mensagem na tela! 🎉
+      `,
+    },
+
+    passos: [
+      {
+        numero: 1,
+        titulo: 'Verificar se Python está instalado',
+        descricao: 'Abra o Terminal/CMD e confirme que tem Python',
+        checklist: [
+          'Abrir Terminal (CMD ou PowerShell)',
+          'Digitar: python --version',
+          'Pressionar Enter',
+          'Se aparecer versão = ✅ OK!',
+          'Se der erro = instalar em python.org',
+        ],
+      },
+      {
+        numero: 2,
+        titulo: 'Criar pasta house-cleaners',
+        descricao: 'Pasta onde vai ficar o seu projeto',
+        checklist: [
+          'No seu computador, criar nova pasta chamada: house-cleaners',
+          'Abrir essa pasta',
+          'Confirmar que está vazia',
+        ],
+      },
+      {
+        numero: 3,
+        titulo: 'Abrir Terminal/CMD nessa pasta',
+        descricao: 'Navegue até a pasta no terminal',
+        checklist: [
+          'Windows: Clicar com botão direito na pasta → "Abrir PowerShell aqui"',
+          'MAC/Linux: Terminal aberto na pasta',
+          'Digitar: pwd (para confirmar que está no lugar certo)',
+        ],
+      },
+      {
+        numero: 4,
+        titulo: 'Instalar Flask',
+        descricao: 'Baixar a ferramenta Flask do computador',
+        checklist: [
+          'No Terminal, digitar: pip install flask',
+          'Pressionar Enter',
+          'Esperar terminar (pode levar 10-30 segundos)',
+          'Ver mensagem "Successfully installed"',
+        ],
+      },
+      {
+        numero: 5,
+        titulo: 'Criar arquivo app.py',
+        descricao: 'Arquivo Python com o código do servidor',
+        codigos: [
+          {
+            linguagem: 'python',
+            arquivo: 'app.py',
+            conteudo: `# 🧹 HOUSE CLEANERS — SEMANA 1: HELLO WORLD FLASK
+# Seu primeiro servidor web!
+
+from flask import Flask
+
+# Criar o servidor
+app = Flask(__name__)
+
+# Rota: quando alguém acessa http://localhost:5000
+@app.route('/')
+def hello():
+    return '''
+    <h1>🧹 Bem-vindo ao House Cleaners!</h1>
+    <p>Este é seu primeiro servidor web com Flask!</p>
+    <p>Parabéns! 🎉</p>
+    '''
+
+# Iniciar o servidor
+if __name__ == '__main__':
+    print('🚀 Servidor rodando em: http://localhost:5000')
+    print('Pressione CTRL+C para parar')
+    app.run(debug=True, port=5000)
+`
+          }
+        ],
+        checklist: [
+          'Abrir VSCode ou bloco de notas',
+          'Copiar o código acima',
+          'Colar na pasta house-cleaners',
+          'Salvar como: app.py',
+          'Confirmar que o arquivo está lá',
+        ],
+      },
+      {
+        numero: 6,
+        titulo: 'Rodar o servidor Flask',
+        descricao: 'Iniciar o servidor no Terminal',
+        checklist: [
+          'No Terminal (na pasta house-cleaners), digitar: python app.py',
+          'Pressionar Enter',
+          'Ver mensagens aparecendo:',
+          '  - "🚀 Servidor rodando em: http://localhost:5000"',
+          '  - "Press CTRL+C to quit"',
+          'Se vir isso = ✅ SERVIDOR RODANDO!',
+        ],
+      },
+      {
+        numero: 7,
+        titulo: 'Abrir no Navegador',
+        descricao: 'Ver sua primeira página web!',
+        checklist: [
+          'Abrir navegador (Chrome, Firefox, Edge)',
+          'Na barra de endereço, digitar: localhost:5000',
+          'Pressionar Enter',
+          'Ver a mensagem: "🧹 Bem-vindo ao House Cleaners!"',
+          'Se vir isso = ✅ VOCÊ CRIOU UM SERVIDOR WEB!',
+        ],
+      },
+      {
+        numero: 8,
+        titulo: 'Parar o servidor',
+        descricao: 'Encerrar o Flask quando terminar',
+        checklist: [
+          'No Terminal, pressionar: CTRL+C',
+          'Ver mensagem "Keyboard Interrupt"',
+          'Servidor parado! ✅',
+        ],
+      },
+    ],
+
+    teste: {
+      confirmacoes_visuais: [
+        '✅ Flask instalado com sucesso',
+        '✅ app.py criado',
+        '✅ "🚀 Servidor rodando em: http://localhost:5000"',
+        '✅ Browser mostrando: "🧹 Bem-vindo ao House Cleaners!"',
+        '✅ CTRL+C funciona para parar',
+      ],
+      resultado_esperado: 'Você consegue digitar localhost:5000 no navegador e ver "🧹 Bem-vindo ao House Cleaners!" com mensagem de parabéns!',
+    },
+
+    checklist_final: [
+      'Python instalado e verificado',
+      'Pasta house-cleaners criada',
+      'Flask instalado (pip install flask)',
+      'app.py criado com código correto',
+      'python app.py executado no Terminal',
+      'localhost:5000 abre no navegador',
+      'Mensagem "Bem-vindo ao House Cleaners!" visível',
+      'CTRL+C para no servidor',
+    ],
+
+    problemas_comuns: [
+      {
+        problema: 'Erro: "python: command not found"',
+        solucao: 'Python não está instalado. Baixar em python.org, instalar, REINICIAR computador',
+      },
+      {
+        problema: 'Erro: "pip: command not found"',
+        solucao: 'Python instalado mas pip não. Reinstalar Python marcando opção "Add Python to PATH"',
+      },
+      {
+        problema: 'Erro: "No module named flask"',
+        solucao: 'Flask não instalado. Digitar: pip install flask',
+      },
+      {
+        problema: 'Porta 5000 já está em uso',
+        solucao: 'Trocar porta no código: app.run(port=5001) - usar 5001, 5002, etc',
+      },
+      {
+        problema: 'localhost:5000 não abre/recusa conexão',
+        solucao: 'Terminal está com erro. Ver se tem "Traceback". Copiar erro, verificar código app.py',
+      },
+      {
+        problema: 'Digito localhost:5000 e nada acontece',
+        solucao: 'Confirmar que Terminal mostra "Servidor rodando em...". Se não, executar python app.py de novo',
+      },
+    ],
+  },
+
   // ==================== HOUSE CLEANERS — SEMANA 2 ====================
   {
     id: 'hc-semana-02',
