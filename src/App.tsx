@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { cursos } from '../data-cursos'
 import Dashboard from './components/Dashboard'
 import CursoDetalhe from './components/CursoDetalhe'
+import AulaIntegrada from './components/AulaIntegrada'
 import './App.css'
 
 interface UsuarioProgress {
@@ -13,8 +14,9 @@ interface UsuarioProgress {
 }
 
 function App() {
-  const [tela, setTela] = useState<'dashboard' | 'curso'>('dashboard')
+  const [tela, setTela] = useState<'dashboard' | 'curso' | 'aula-integrada'>('dashboard')
   const [cursoSelecionado, setCursoSelecionado] = useState(0)
+  const [aulaIntegradaId, setAulaIntegradaId] = useState('hc-semana-02')
   const [usuario, setUsuario] = useState<UsuarioProgress>({
     xp: 0,
     level: 1,
@@ -112,6 +114,15 @@ function App() {
         >
           📊 Dashboard
         </button>
+        <button
+          className={`nav-btn ${tela === 'aula-integrada' ? 'ativo' : ''}`}
+          onClick={() => {
+            setTela('aula-integrada')
+            setAulaIntegradaId('hc-semana-02')
+          }}
+        >
+          📚 Aulas Completas
+        </button>
         {cursos.map((curso, i) => (
           <button
             key={curso.id}
@@ -136,6 +147,8 @@ function App() {
               setTela('curso')
             }}
           />
+        ) : tela === 'aula-integrada' ? (
+          <AulaIntegrada aulaId={aulaIntegradaId} />
         ) : (
           <CursoDetalhe
             curso={cursos[cursoSelecionado]}
