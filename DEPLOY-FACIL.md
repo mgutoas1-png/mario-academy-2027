@@ -1,4 +1,4 @@
-# 🚀 Guia SUPER Fácil de Deploy em Vercel
+# 🚀 Guia SUPER Fácil de Deploy em Netlify
 
 **Objetivo**: Colocar sua plataforma online em **3 passos simples** (5 minutos)
 
@@ -8,81 +8,65 @@
 
 - ✅ Node.js instalado (`node --version`)
 - ✅ GitHub account (criar se não tiver)
-- ✅ Email: **mgutoas1@gmail.com**
+- ✅ Email: **mgutoas@gmail.com**
 
 ---
 
-## 📋 Passo 1: Enviar para GitHub
+## 📋 Passo 1: Repositório GitHub
 
-### 1.1 Criar repositório no GitHub
+### 1.1 Já está sincronizado!
 
-1. Abra https://github.com/new
-2. Nome: `mario-academy-2027`
-3. Descrição: "Plataforma de cursos com gamificação - 4 sistemas práticos"
-4. Public (para acessar de qualquer lugar)
-5. Clique **"Create repository"**
-
-### 1.2 Enviar código
-
-```bash
-# Na pasta plataforma-cursos
-cd plataforma-cursos
-
-# Inicializar Git
-git init
-git add .
-git commit -m "🎓 Plataforma Mario Academy 2027 - 128 aulas com gamificação"
-
-# Adicionar remote (SUBSTITUA SEU-USERNAME)
-git remote add origin https://github.com/SEU-USERNAME/mario-academy-2027.git
-git branch -M main
-git push -u origin main
-```
-
-**Pronto!** Seu código está no GitHub.
+✅ Código já está em: https://github.com/mgutoas-svg/mario
+✅ Branch: main
+✅ Pasta: plataforma-cursos/
 
 ---
 
-## 🌐 Passo 2: Deploy em Vercel
+## 🌐 Passo 2: Deploy em Netlify (SUPER FÁCIL!)
 
-### 2.1 Abrir Vercel e conectar
+### 2.1 Abrir Netlify
 
-1. Abra https://vercel.com
-2. Clique **"Sign Up"**
-3. Escolha **"Continue with GitHub"**
-4. Autorize Vercel
+1. Abra https://netlify.com
+2. Clique **"Sign up"**
+3. Escolha **"GitHub"**
+4. Autorize Netlify
 5. Você será redirecionado
 
-### 2.2 Importar projeto
+### 2.2 Conectar repositório
 
-1. Clique **"Add New..."** → **"Project"**
-2. Clique **"Import Git Repository"**
-3. Procure por `mario-academy-2027`
-4. Clique **"Import"**
+1. Clique **"Add new site"** → **"Import an existing project"**
+2. Escolha **"GitHub"**
+3. Procure por `mario` (mgutoas-svg/mario)
+4. Clique para selecionar
+5. **Branch to deploy**: main
+6. Clique **"Connect repo"**
 
-### 2.3 Configurar Deploy
+### 2.3 Configurar Deploy (OU deixe automático!)
 
-1. **Framework**: Vite (detecta automaticamente)
-2. **Root Directory**: `./` (deixe como está)
-3. **Build Command**: `npm run build` (padrão)
-4. **Output Directory**: `dist` (padrão)
-5. Clique **"Deploy"**
+```
+Build command:     npm run build
+Publish directory: dist
+```
 
-**Pronto!** Vercel vai compilar e colocar online automaticamente.
+**Netlify detecta automaticamente via netlify.toml!** ✨
+
+Clique **"Deploy site"** e pronto!
+
+**Pronto!** Netlify vai compilar e colocar online automaticamente!
 
 ---
 
 ## 🎉 Passo 3: Seu Link Público!
 
-Após o deploy (2-3 minutos):
+Após o deploy (30-60 segundos no Netlify):
 
 ```
-✅ Deployment successful!
+✅ Site is live!
 
-Your site is live at: https://mario-academy-2027.vercel.app
+Your site is live at: https://mario-academy-2027.netlify.app
 ```
 
-**Copie esse link!** Você pode acessar de:
+**Netlify gera link automaticamente!** Você pode acessar de:
 - 📱 Celular
 - 💻 PC
 - 📱 Tablet
@@ -92,31 +76,32 @@ Your site is live at: https://mario-academy-2027.vercel.app
 
 ## 🔄 Atualizar Depois
 
-Toda vez que você modificar o código:
+Toda vez que você faz push no GitHub:
 
 ```bash
-# Na pasta plataforma-cursos
+# Na pasta mario (raiz do projeto)
 git add .
 git commit -m "✨ Atualizei a plataforma"
-git push
+git push github main
 ```
 
-Vercel detecta automaticamente e faz deploy novamente! ✨
+**Netlify detecta automaticamente!** Em ~30 segundos está atualizado. ✨
 
 ---
 
 ## 🎯 Resultado Final
 
 ```
-🎓 Mario Academy 2027
+🎓 Mario Academy 2027 — LIVE!
 
 Seu site está ONLINE em:
-https://seu-site.vercel.app
+https://mario-academy-2027.netlify.app
 
 ✅ 128 aulas disponíveis
 ✅ Gamificação funcionando
 ✅ Acessível de qualquer lugar
 ✅ Progresso salvo automaticamente
+✅ Deploy automático no GitHub push
 ```
 
 ---
