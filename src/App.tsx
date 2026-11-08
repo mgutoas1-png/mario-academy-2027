@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard'
 import CursoDetalhe from './components/CursoDetalhe'
 import AulaIntegrada from './components/AulaIntegrada'
 import GlossarioFerramental from './components/GlossarioFerramental'
+import GuiaIDEs from './components/GuiaIDEs'
 import './App.css'
 
 interface UsuarioProgress {
@@ -15,7 +16,7 @@ interface UsuarioProgress {
 }
 
 function App() {
-  const [tela, setTela] = useState<'dashboard' | 'curso' | 'aula-integrada' | 'glossario'>('dashboard')
+  const [tela, setTela] = useState<'dashboard' | 'curso' | 'aula-integrada' | 'glossario' | 'ides'>('dashboard')
   const [cursoSelecionado, setCursoSelecionado] = useState(0)
   const [aulaIntegradaId, setAulaIntegradaId] = useState('hc-semana-02')
   const [usuario, setUsuario] = useState<UsuarioProgress>({
@@ -116,10 +117,16 @@ function App() {
           📊 Dashboard
         </button>
         <button
+          className={`nav-btn ${tela === 'ides' ? 'ativo' : ''}`}
+          onClick={() => setTela('ides')}
+        >
+          💻 IDEs
+        </button>
+        <button
           className={`nav-btn ${tela === 'glossario' ? 'ativo' : ''}`}
           onClick={() => setTela('glossario')}
         >
-          📖 Glossário + Ferramental
+          📖 Glossário
         </button>
         <button
           className={`nav-btn ${tela === 'aula-integrada' ? 'ativo' : ''}`}
@@ -154,6 +161,8 @@ function App() {
               setTela('curso')
             }}
           />
+        ) : tela === 'ides' ? (
+          <GuiaIDEs />
         ) : tela === 'glossario' ? (
           <GlossarioFerramental />
         ) : tela === 'aula-integrada' ? (
